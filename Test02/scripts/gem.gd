@@ -1,18 +1,11 @@
 extends Area2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+signal gem_grabbed
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	pass
 
 func _on_gem_area_entered(area):
 	if area.get_name() == 'player':
+		emit_signal("gem_grabbed")
 		queue_free()
